@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+	<title>SmartBibManagementSystem</title>
+	
+	<link type="text/css" rel="stylesheet"
+		href="resources/css/bootstrap.css" />
+
+	<link type="text/css" rel="stylesheet"
+		href="resources/css/bootstrap-responsive.css" />
+
+	<h:outputScript library="primefaces" name="printer/printer.js" />
+	
+	<script type="javascript">
+	</script>
+	
+	<style type="text/css">
+		.currentPage{
+			color:#ff0000;
+		}
+		
+		.fixedWidth{
+			width:1000px;
+			margin:auto;
+			padding:0;
+		}
+		
+		.input-block-level {
+		  display: block;
+		  width: 200px;
+		  min-height: 30px;
+		  -webkit-box-sizing: border-box;
+		     -moz-box-sizing: border-box;
+		          box-sizing: border-box;
+		}
+	</style>
+</h:head>
+
+<h:body>
+
+	<!-- 最上面的导航栏 -->
+	
+	<!-- 下面写具体内容 -->
+	<h:form>
+		<h:panelGrid columns="2" cellspacing="10" style="hight:600px;margin:auto;" styleClass="fixedWidth">
+			<p:scrollPanel header="公共属性" style="height:600px;padding-top:50px">
+				<h:outputLabel for="title" value="标题" />
+				<p:inputText id="title" value="#{bib.title}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="author" value="作者" />
+				<p:inputText id="author" value="#{bib.author}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="year" value="年份" />
+				<p:inputText id="year" value="#{bib.year}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="title2" value="标题" />
+				<p:inputText id="title2" value="#{bib.title}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="author2" value="作者" />
+				<p:inputText id="author2" value="#{bib.author}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="title3" value="标题" />
+				<p:inputText id="title3" value="#{bib.title}" styleClass="input-block-level"></p:inputText>
+				<h:outputLabel for="author3" value="作者" />
+				<p:inputText id="author3" value="#{bib.author}" styleClass="input-block-level"></p:inputText>
+				
+			</p:scrollPanel>
+			<p:scrollPanel header="特殊属性2" style="height:600px;padding-top:50px">
+				<h:outputLabel for="isbn" value="ISBN2" />
+				<p:inputText id="isbn" value="#{bib.year}" styleClass="input-block-level"></p:inputText>
+			</p:scrollPanel>
+		</h:panelGrid>
+		
+		<p:commandButton action="#{bib.importBib}" value="确定"/>
+	</h:form>
+</h:body>
+</html>
