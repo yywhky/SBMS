@@ -7,30 +7,23 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<f:view locale="#{facesContext.externalContext.requestLocale}">
-	<h:head>
-		<title>#{msgs.appTitle}</title>
+<h:head>
+	<title>登录</title>
+	<link type="text/css" rel="stylesheet"
+		href="resources/css/bootstrap.css" />
 
-		<c:set var="contextPath"
-			value="#{facesContext.externalContext.requestContextPath}" />
+	<link type="text/css" rel="stylesheet"
+		href="resources/css/bootstrap-responsive.css" />
 
-		<link type="text/css" rel="stylesheet"
-			href="#{contextPath}#{settings.resourcePrefix}/resources/css/bootstrap.css" />
+	<h:outputScript library="primefaces" name="printer/printer.js" />
 
-		<link type="text/css" rel="stylesheet"
-			href="#{contextPath}#{settings.resourcePrefix}/resources/css/bootstrap-responsive.css" />
 
-		<link rel="shortcut icon"
-			href="#{contextPath}#{settings.resourcePrefix}/resources/images/logo16.png" />
-
-		<h:outputScript library="primefaces" name="printer/printer.js" />
-
-	</h:head>
 	<style type="text/css">
 body {
 	padding-top: 200px;
 	padding-bottom: 200px;
-	background-color: #f5f5f5;
+	background-image:url(resources/images/back.png);
+	background-repeat:repeat;
 }
 
 .form-signin {
@@ -54,30 +47,30 @@ body {
 	padding: 7px 9px;
 }
 </style>
-	<body>
-		<div class="container">
-			<p:growl id="growl" showSummary="true" showDetail="true"
-				sticky="false" />
+</h:head>
 
-			<h:form styleClass="form-signin">
-				<h2 class="form-signin-heading">#{msgs.loginTitle}</h2>
-				<h:outputLabel for="username" value="#{msgs.user}" />
-				<p:inputText value="#{UserInfo.username}" id="username"
-					required="true" requiredMessage="#{msgs.MSG_USER_NOT_INPUT_USER}"
-					label="username" styleClass="input-block-level">
-				</p:inputText>
+<h:body>
+	<div class="container">
+		<p:growl id="growl" showSummary="true" showDetail="true"
+			sticky="false" />
 
-				<h:outputLabel for="password" value="#{msgs.password}" />
-				<p:password value="#{UserInfo.password}" id="password"
-					required="true"
-					requiredMessage="#{msgs.MSG_USER_NOT_INPUT_PASSWORD}"
-					label="password" redisplay="true" styleClass="input-block-level" />
+		<h:form styleClass="form-signin">
+			<h2 class="form-signin-heading">用户登录</h2>
+			<h:outputLabel for="username" value="用户名" />
+			<p:inputText value="#{user.username}" id="username" required="true"
+				requiredMessage="请输入用户名" label="username"
+				styleClass="input-block-level">
+			</p:inputText>
 
-				<p:commandButton id="loginButton" value="#{msgs.login}"
-					action="#{UserInfo.login}" update=":growl" styleClass="btn btn-primary" />
+			<h:outputLabel for="password" value="密码" />
+			<p:password value="#{user.password}" id="password" required="true"
+				requiredMessage="请输入密码" label="password" redisplay="true"
+				styleClass="input-block-level" />
 
-			</h:form>
-		</div>
-	</body>
-</f:view>
+			<p:commandButton id="loginButton" value="登录"
+				action="#{user.login}" update=":growl" styleClass="btn btn-primary" />
+
+		</h:form>
+	</div>
+</h:body>
 </html>
