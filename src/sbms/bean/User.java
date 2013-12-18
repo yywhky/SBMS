@@ -22,7 +22,7 @@ public class User {
 	}
 	
 	public void login(){
-		System.out.print("User login1234!");
+		System.out.print("User login123456!");
 	}
 	
 	
